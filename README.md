@@ -1,0 +1,2 @@
+# CordovaJS
+基于酷开系统的Cordova JavaScript框架，供Web前端开发使用，集成该框架后具备与酷开系统交互的能力

@@ -3,7 +3,7 @@
 
 仓库两层目录，其中
 
-webdemo包含整个完整功能[链接地址](https://github.com/fanyanbo/CordovaJS/tree/master/webdemo)
+> webdemo包含整个完整功能[链接地址](https://github.com/fanyanbo/CordovaJS/tree/master/webdemo)
 
 > document为相关的说明文档<br>
 > *  1.web页面通过fis3进行打包[链接地址](https://github.com/fanyanbo/CordovaJS/blob/master/document/web%E6%89%93%E5%8C%85---fis.md)<br>

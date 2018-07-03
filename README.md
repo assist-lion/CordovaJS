@@ -1,4 +1,4 @@
 # CordovaJS
 基于酷开系统的Cordova JavaScript框架，供Web前端开发使用，集成该框架后具备与酷开系统交互的能力
 
-仓库两层目录，其中webdemo包含整个完整功能；dcument为相关的说明文档
+仓库两层目录，其中webdemo包含整个完整功能；document为相关的说明文档

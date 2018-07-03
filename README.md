@@ -8,3 +8,7 @@
 > document为相关的说明文档<br>
 > *  1.web页面通过fis3进行打包[链接地址](https://github.com/fanyanbo/CordovaJS/blob/master/document/web%E6%89%93%E5%8C%85---fis.md)<br>
 > *   2.cordova框架接口调用[链接地址](https://github.com/fanyanbo/CordovaJS/blob/master/document/%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E6%96%87%E6%A1%A3.md)
+
+## 项目截图 ##
+
+![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms1.png)

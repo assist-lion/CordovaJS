@@ -151,45 +151,29 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
     /*
      *启动用户设置，登录成功就消失
      */
-    CoocaaOSApi.prototype.startUserSettingAndFinish = function(success, error) {
-        argscheck.checkArgs('ff', 'CoocaaOSApi.startUserSettingAndFinish', arguments);
-        startapp.start([
-            ["action", "android.settings.ADD_ACCOUNT_SETTINGS"],
-            [{
-                'needFinish': true
-            }]
-        ], success, error);
+    CoocaaOSApi.prototype.startUserSettingAndFinish = function(success,error){
+        argscheck.checkArgs('ff','CoocaaOSApi.startUserSettingAndFinish',arguments);
+        startapp.start([["action", "android.settings.ADD_ACCOUNT_SETTINGS"],[{'needFinish':true}]], success,error);
         //开机引导时多2个参数startapp.start([["action", "android.settings.ADD_ACCOUNT_SETTINGS"],[{'needFinish':true},{'layoutType':"LOGIN_MOBILE"},{'fromGuide':true}]], success,error);
     }
     //包名类名方式启动
-    CoocaaOSApi.prototype.startUserSettingAndFinish2 = function(success, error) {
-        argscheck.checkArgs('ff', 'CoocaaOSApi.startUserSettingAndFinish', arguments);
+    CoocaaOSApi.prototype.startUserSettingAndFinish2 = function(success,error){
+        argscheck.checkArgs('ff','CoocaaOSApi.startUserSettingAndFinish',arguments);
         startapp.check("com.tianci.user", function(message) { /* success */
-            startapp.start([
-                ["com.tianci.user", "com.tianci.webview.AccountWebActivity"],
-                [{ 'needFinish': true }]
-            ], success, error);
-        }, error);
+            startapp.start([["com.tianci.user", "com.tianci.webview.AccountWebActivity"],[{'needFinish':true}]], success,error);
+        },error);
     }
     //包名+action方式启动
-    CoocaaOSApi.prototype.startUserSettingAndFinish3 = function(success, error) {
-        argscheck.checkArgs('ff', 'CoocaaOSApi.startUserSettingAndFinish', arguments);
+    CoocaaOSApi.prototype.startUserSettingAndFinish3 = function(success,error){
+        argscheck.checkArgs('ff','CoocaaOSApi.startUserSettingAndFinish',arguments);
         startapp.check("com.tianci.user", function(message) { /* success */
-            startapp.start([
-                ["action", "android.settings.ADD_ACCOUNT_SETTINGS", "com.tianci.user"],
-                [{ 'needFinish': true }]
-            ], success, error);
-        }, error);
+            startapp.start([["action", "android.settings.ADD_ACCOUNT_SETTINGS","com.tianci.user"],[{'needFinish':true}]], success,error);
+        },error);
     }
     //包名方式启动
-    CoocaaOSApi.prototype.startUserSettingAndFinish4 = function(success, error) {
-        argscheck.checkArgs('ff', 'CoocaaOSApi.startUserSettingAndFinish', arguments);
-        startapp.check("com.tianci.user", function(message) { /* success */
-            startapp.start([
-                ["skyworth.useaartest", ""],
-                [{ 'needFinish': true }]
-            ], success, error);
-        }, error);
+    CoocaaOSApi.prototype.startUserSettingAndFinish4 = function(success,error){
+        argscheck.checkArgs('ff','CoocaaOSApi.startUserSettingAndFinish',arguments);
+            startapp.start("com.coocaa.mall", success, error);        
     }
 
     /*
@@ -614,14 +598,29 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
         argscheck.checkArgs('f', 'CoocaaOSApi.addNetChangedListener', arguments);
         brocaster.addEventListener("NET_CHANGGED", listener);
     }
+    CoocaaOSApi.prototype.removeNetChangedListener = function(listener)
+    {
+        argscheck.checkArgs('f','CoocaaOSApi.removeNetChangedListener',arguments);
+        brocaster.removeEventListener( "NET_CHANGGED",listener);
+    }
     CoocaaOSApi.prototype.addUSBChangedListener = function(listener) {
         argscheck.checkArgs('f', 'CoocaaOSApi.addUSBChangedListener', arguments);
         brocaster.addEventListener("USB_CHANGGED", listener);
     }
 
+    CoocaaOSApi.prototype.removeUSBChangedListener = function(listener)
+    {
+        argscheck.checkArgs('f','CoocaaOSApi.removeUSBChangedListener',arguments);
+        brocaster.removeEventListener( "USB_CHANGGED",listener);
+    }
+
     CoocaaOSApi.prototype.addAppTaskListener = function(listener) {
         argscheck.checkArgs('f', 'CoocaaOSApi.addAppTaskListener', arguments);
         brocaster.addEventListener("APP_TASK_CALLBACK", listener);
+    }
+    CoocaaOSApi.prototype.removeAppTaskListener = function(listener) {
+        argscheck.checkArgs('f', 'CoocaaOSApi.removeAppTaskListener', arguments);
+        brocaster.removeEventListener("APP_TASK_CALLBACK", listener);
     }
     CoocaaOSApi.prototype.addUserChanggedListener = function(listener) {
         argscheck.checkArgs('f', 'CoocaaOSApi.addUserChanggedListener', arguments);
@@ -637,6 +636,10 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
         brocaster.addEventListener("PURCHASE_CALLBACK", listener);
     }
 
+    CoocaaOSApi.prototype.removePurchaseOrderListener = function(listener) {
+        argscheck.checkArgs('f', 'CoocaaOSApi.removePurchaseOrderListener', arguments);
+        brocaster.removeEventListener("PURCHASE_CALLBACK", listener);
+    }
     CoocaaOSApi.prototype.purchaseOrder = function(appcode, tradeid, productname, productsubname, producttype, specialtype, amount, count, imgurl, spec, success, error) {
         argscheck.checkArgs('sssssonnssff', 'CoocaaOSApi.purchaseOrder', arguments);
         exec(success, error, 'CoocaaOSApi', 'purchaseOrder', [{
@@ -899,11 +902,11 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
         });
     }
     //启动优惠券列表页
-    CoocaaOSApi.prototype.startAllCoupon = function(sign, openId, appId, businessLine, extendParam, success, error) {
+    CoocaaOSApi.prototype.startAllCoupon = function(sign, openId, appId, businessLine, businessType, success, error) {
         argscheck.checkArgs('sssssff', 'CoocaaOSApi.startAllCoupon', arguments);
         startapp.start([
             ["action", "coocaa.intent.action.ALLCOUPON"],
-            [{ "sign": sign }, { "openId": openId }, { "appId": appId }, { "businessLine": businessLine }, { "extendParam": extendParam }]
+            [{ "sign": sign }, { "openId": openId }, { "appId": appId }, { "businessLine": businessLine }, { "business_type": businessType }]
         ], success, error);
     }
     //启动我的优惠券
@@ -961,9 +964,31 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
         ], success, error);
     }
 
+
+
     //启动新版本浏览器【无路径，即不启动多层activity】
-    //全屏透明action：coocaa.intent.action.browser
-    //全屏不透明action：coocaa.intent.action.browser.no_trans
+    //##启动方式 
+        // ###透明主题 
+        // ####有路径
+        //         Intent intent= new Intent("com.coocaa.app_browser");
+        //         intent.setAction("coocaa.intent.action.browser");
+        //         intent.putExtra("url","http://www.www.www");
+        //         intent.setFlags(  Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        // ####无路径
+        //         Intent intent= new Intent("com.coocaa.app_browser");
+        //         intent.setAction("coocaa.intent.action.browser.no_route");
+        //         intent.putExtra("url","http://www.www.www");
+
+        // ###非透明主题 
+        // ####有路径
+        //         Intent intent= new Intent("com.coocaa.app_browser");
+        //         intent.setAction("coocaa.intent.action.browser.no_trans");
+        //         intent.putExtra("url","http://www.www.www");
+        //         intent.setFlags(  Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        // ####无路径
+        //         Intent intent= new Intent("com.coocaa.app_browser");
+        //         intent.setAction("coocaa.intent.action.browser.no_trans.no_route");
+        //         intent.putExtra("url","http://www.www.www");
     CoocaaOSApi.prototype.startNewBrowser = function(url, success, error) {
         console.log("启动新版浏览器")
         argscheck.checkArgs('sff', 'CoocaaOSApi.startNewBrowser', arguments);
@@ -981,7 +1006,7 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
         var task = FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK;
         argscheck.checkArgs('sff', 'CoocaaOSApi.startNewBrowser2', arguments);
         startapp.start([
-            ["action", "coocaa.intent.action.browser.no_trans", "com.coocaa.app_browser", "", "", task + ""],
+            ["action", "coocaa.intent.action.browser", "com.coocaa.app_browser", "", "", task + ""],
             [{ "url": url }]
         ], success, error);
     }
@@ -1062,6 +1087,22 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
         ], success, error);
     }
 
+    //
+    /*web页面判断是否放开上下键需求*/
+    CoocaaOSApi.prototype.setSpecialMachine = function(machineList,success,error){
+        argscheck.checkArgs('sff','CoocaaOSApi.setSpecialMachine',arguments);
+        exec(success,error,'CoocaaOSApi','setSpecialMachine',[{'machineList':machineList}]);
+    }
+
+    //启动主页指定tab
+    // 1、如果系统是6.x的，action是coocaa.intent.action.HOME
+    // 2、如果系统是5.x的，需要判断一下persist.service.homepage.pkg这个prop，如果值是com.tianci.movieplatform，那么action是coocaa.intent.action.HOME.Translucent  否则 action就是coocaa.intent.movie.home
+    // 3、跳转到指定tab上，intent附带参数，key是jumpToPage 值是tab的id，由运营提供
+    CoocaaOSApi.prototype.startHomeTap = function(actionName,tabid,success,error){
+        argscheck.checkArgs('ssff','CoocaaOSApi.startHomeTap',arguments);
+        startapp.start([["action", actionName],[{'jumpToPage':tabid}]], success,error);
+    }
+
     module.exports = new CoocaaOSApi();
 });
 
@@ -1086,45 +1127,46 @@ cordova.define("com.broadcaster", function(require, exports, module) {
             }
             return event;
         },
-        fireNativeEvent: function(eventname, data, success, error) {
-            exec(success, error, "broadcaster", "fireNativeEvent", [eventname, data]);
+        fireNativeEvent: function (eventname, data, success, error) {
+            exec(success, error, "broadcaster", "fireNativeEvent", [ eventname, data ]);
         },
-        fireEvent: function(type, data) {
-            var event = this.createEvent(type, data);
+        fireEvent: function (type, data) {
+            var event = this.createEvent( type, data );
             if (event && (event.type in this._channels)) {
                 this._channels[event.type].fire(event);
             }
         },
-        //removeChannel: function( eventname ) {
-        //  delete this._channels[eventname];
-        //},
-        addEventListener: function(eventname, f) {
+
+        addEventListener: function (eventname,f) {
             if (!(eventname in this._channels)) {
+                console.log("00000===" + eventname);
+
                 var me = this;
-                exec(function() {
+                exec( function() {
                     me._channels[eventname] = channel.create(eventname);
                     me._channels[eventname].subscribe(f);
-                }, function(err) {
-                    console.log("ERROR addEventListener: " + err)
-                }, "broadcaster", "addEventListener", [eventname]);
-            } else {
-                // this._channels[eventname].subscribe(f);
-                var me = this;
-                exec(function() {
-
-                }, function(err) {
-                    console.log("ERROR addEventListener: " + err)
-                }, "broadcaster", "addEventListener", [eventname]);
+                }, function(err)  {
+                    console.log( "ERROR addEventListener: " + err)
+                }, "broadcaster", "addEventListener", [ eventname ]);
+            }
+            else {
+                 console.log("1111===" + eventname);
+                 var me = this;
+                exec( function() {
+                  //  me._channels[eventname].subscribe(f);
+                }, function(err)  {
+                    console.log( "ERROR addEventListener: " + err)
+                }, "broadcaster", "addEventListener", [ eventname ]);
+                
             }
         },
         removeEventListener: function(eventname, f) {
             if (eventname in this._channels) {
                 var me = this;
-                exec(function() {
-                    // me._channels[eventname].unsubscribe(f);
-                }, function(err) {
-                    console.log("ERROR removeEventListener: " + err)
-                }, "broadcaster", "removeEventListener", [eventname]);
+                exec( function() {
+                }, function(err)  {
+                    console.log( "ERROR removeEventListener: " + err)
+                }, "broadcaster", "removeEventListener", [ eventname ]);
             }
         }
 

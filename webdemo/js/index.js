@@ -63,6 +63,10 @@ var app = {
         }
 
         console.log('Received Event: ' + id);
+        coocaaosapi.getWebViewSDKInfo(function(message) {
+            console.log("====================="+JSON.stringify(message))
+            document.getElementById('webVersion').innerHTML = "此浏览器集成的websdk版本为："+message.versionName;
+        }, function(error) { console.log(error); })
 
         //      map = new coocaakeymap($(".coocaabtn"), null, "btnFocus", function() {}, function(val) {}, function(obj) {});
         //      document.getElementById("goToDown").focus();
@@ -423,17 +427,17 @@ var app = {
             }, function(error) { console.log(error); })
         }, false);
 
-        document.getElementById("getcordovainfo").addEventListener("click", function() {
-            coocaaosapi.getWebViewSDKInfo(function(message) {
-                document.getElementById('cordovainfo').value = JSON.stringify(message);
-            }, function(error) { console.log(error); })
-        }, false);
+        // document.getElementById("getcordovainfo").addEventListener("click", function() {
+        //     coocaaosapi.getWebViewSDKInfo(function(message) {
+        //         document.getElementById('cordovainfo').value = JSON.stringify(message);
+        //     }, function(error) { console.log(error); })
+        // }, false);
 
-        document.getElementById("getappstoreinfo").addEventListener("click", function() {
-            coocaaosapi.getAppStoreInfo(function(message) {
-                document.getElementById('appstoreinfo').value = JSON.stringify(message);
-            }, function(error) { console.log(error); })
-        }, false);
+        // document.getElementById("getappstoreinfo").addEventListener("click", function() {
+        //     coocaaosapi.getAppStoreInfo(function(message) {
+        //         document.getElementById('appstoreinfo').value = JSON.stringify(message);
+        //     }, function(error) { console.log(error); })
+        // }, false);
 
         document.getElementById("setfocusposition").addEventListener("click", function() {
             var focuspositioninfo = document.getElementById("focusposition").value;

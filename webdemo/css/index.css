@@ -118,9 +118,14 @@ h1 {
 td{
     vertical-align: text-top;
     text-align: center;
+    width: 225px;
 }
 th{
     font-size: 30px;
-    width: 1125px;
+    /*width: 1125px;*/
     text-align: center;
+}
+fieldset{
+    margin-bottom: 15px;
+    margin-left: -45px;
 }

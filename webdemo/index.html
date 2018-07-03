@@ -15,45 +15,46 @@
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
                 <p >
-                	<p class="appVersion">Cordova 1.0</p>
-	                <table>
-	                	<tr><td colspan="5" style="font-size:30px;">系统启动、获取信息类</td colspan="5" style="font-size:30px;"></tr>
-	                    <tr>
-	                        <td width='225px'>
-	                            <p><button class="event received" id="startloaclmedia" >启动本地媒体</button></p>
-	                            <p><button class="event received" id="starttvsetting" >启动电视设置</button></p>
-	                            <p><button class="event received" id="startsourcelist" >启动信号源</button></p>	                                   
-	                            <p><button class="event received" id="startusersetting" >启动账户设置</button></p>
+                	<p class="appVersion" id="webVersion">webappdemo </p>
+                    <fieldset>
+                        <legend>系统启动、获取信息类</legend>
+                        <table>
+                        <tr>
+                            <td width='225px'>
+                                <p><button class="event received" id="startloaclmedia" >启动本地媒体</button></p>
+                                <p><button class="event received" id="starttvsetting" >启动电视设置</button></p>
+                                <p><button class="event received" id="startsourcelist" >启动信号源</button></p>                                     
+                                <p><button class="event received" id="startusersetting" >启动账户设置</button></p>
                             </td>
                             <td>
-	                            <p><button class="event received" id="logout" >退出登录</button></p>
-	                            <p><button class="event received" id="startnetsetting" >启动网络设置</button></p>
-	                            <p><button class="event received" id="startbluetoothsetting" >启动蓝牙设置</button></p>
-	                            <p><button class="event received" id="startmssagebox" >启动消息盒子</button></p>
+                                <p><button class="event received" id="logout" >退出登录</button></p>
+                                <p><button class="event received" id="startnetsetting" >启动网络设置</button></p>
+                                <p><button class="event received" id="startbluetoothsetting" >启动蓝牙设置</button></p>
+                                <p><button class="event received" id="startmssagebox" >启动消息盒子</button></p>
                             </td>
                             <td>
-	                            <p><button class="event received" id="startupgrade" >启动系统升级</button></p>
-	                            <p><input type="text" id="locationid" /><button class="event received" id="getlocation" >获取定位信息</button></p>
-	                            <p><input type="text" id="usertokenid" /><button class="event received" id="getusertoken" >获取用户token</button></p>
-	                            <p><input type="text" id="baseinfoid" /><button class="event received" id="getbaseinfo" >获取baseinfo</button></p>
+                                <p><button class="event received" id="startupgrade" >启动系统升级</button></p>
+                                <p><input type="text" id="locationid" /><button class="event received" id="getlocation" >获取定位信息</button></p>
+                                <p><input type="text" id="usertokenid" /><button class="event received" id="getusertoken" >获取用户token</button></p>
+                                <p><input type="text" id="baseinfoid" /><button class="event received" id="getbaseinfo" >获取baseinfo</button></p>
                             </td>
                             <td>
-	                            <p><input type="text" id="isnetworkingid" /><button class="event received" id="getnetworking" >获取网络连接状态</button></p>
-	                            <p><input type="text" id="nettypeid" /><button class="event received" id="getnettype" >获取网络连接类型</button></p>
-	                            <p><input type="text" id="ipinfoid" /><button class="event received" id="getipinfp" >获取网络ip地址</button></p>
-	                            <p><input type="text" id="hasloginid" /><button class="event received" id="gethaslogin" >用户是否登录</button></p>
+                                <p><input type="text" id="isnetworkingid" /><button class="event received" id="getnetworking" >获取网络连接状态</button></p>
+                                <p><input type="text" id="nettypeid" /><button class="event received" id="getnettype" >获取网络连接类型</button></p>
+                                <p><input type="text" id="ipinfoid" /><button class="event received" id="getipinfp" >获取网络ip地址</button></p>
+                                <p><input type="text" id="hasloginid" /><button class="event received" id="gethaslogin" >用户是否登录</button></p>
                             </td>
                             <td>
-                            	<p><button class="event received" id="getsysteminfo" >获取设备信息</button><textarea type="text" id="systeminfoid" style="height:80px;"/></textarea></p>
-	                            
-	                            <p><button class="event received" id="getuserinfo" >获取用户信息</button><textarea type="text" id="userinfoid" style="height:80px;"></textarea></p>
-	                        </td>
-                        </tr>	
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr><td colspan="5" style="font-size:30px;">影视、主页相关</td colspan="5" style="font-size:30px;"></tr>
+                                <p><button class="event received" id="getsysteminfo" >获取设备信息</button><textarea type="text" id="systeminfoid" style="height:80px;"/></textarea></p>
+                                
+                                <p><button class="event received" id="getuserinfo" >获取用户信息</button><textarea type="text" id="userinfoid" style="height:80px;"></textarea></p>
+                            </td>
+                        </tr>   
+                    </table>
+                    </fieldset>
+	                <fieldset>
+                        <legend>影视、主页相关</legend>
+                    <table>
 	                    <tr>
 	                        <td width='225px'>
 	                        	<p><button class="event received" id="startmoviehistory" >启动影视历史</button></p>
@@ -76,12 +77,15 @@
 	                            <p><button class="event received" id="hometab52" >5.x系统启动主页指定tab-非影视合一</button></p>
 	                            
 	                        </td>
+                            <td></td>
                         </tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr><td colspan="5" style="font-size:30px;">应用圈、商城相关</td colspan="5" style="font-size:30px;"></tr>
+                    </table>
+                    </fieldset>
+                    <fieldset>
+                        <legend>应用圈、商城相关</legend>
+                    
+                    <table>
+                        
                         <tr>
 	                        <td width='225px'>
 	                            <p><button class="event received" id="startappstore" >启动应用圈</button></p>
@@ -118,11 +122,13 @@
 	                            
 	                        </td>
                         </tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr><td colspan="5" style="font-size:30px;">业务相关</td colspan="5" style="font-size:30px;"></tr>
+                    </table>
+                    </fieldset>
+                    <fieldset>
+                        <legend>业务相关</legend>
+                    
+                    <table>
+                    
                         <tr>
 	                        <td width='225px'>
 	                        	<p>不同的启动方式：使用时注意传参<br><button class="event received" id="startbyaction">action启动</button><button class="event received" id="startbypkgandclass">包名加类名启动</button><button class="event received" id="startbypkgandaction">包名加action</button><button class="event received" id="startbypkg">包名启动</button></p>
@@ -132,7 +138,7 @@
                             <td>
 	                        	<p><button class="event received" id="setBusiness" >设置业务需求business【回调】</button>
 	                        	<p><button class="event received" id="getBusiness" >获取业务需求business【无回调】</button>
-	                        	<p><button class="event received" id="setSpecialMachine" >是否放开上下键特殊需求</button>
+	                        	<p><button class="event received" id="setSpecialMachine" >是否放开上下键特殊需求【保留】</button>
                         	</td>
                             <td>
 	                            <p><button class="event received" id="startpurcharse" >启动支付订单</button>
@@ -150,11 +156,13 @@
                 				<p>查询属性的key：<input type="text" id="getSystemPropertyKey"/><br>获取到的值为：<input type="text" id="getSystemPropertyValue"/><button class="event received" id="getSystemProperty">获取属性值</button></p>
 	                        </td>
 	                    </tr>
-	                    <tr></tr>
-	                    <tr></tr>
-	                    <tr></tr>
-	                    <tr></tr>
-	                    <tr><td colspan="5" style="font-size:30px;">监听</td colspan="5" style="font-size:30px;"></tr>
+	                </table>
+                    </fieldset>
+                    <fieldset>
+                        <legend>监听</legend>
+                    
+                    <table>
+	                  
 	                    <tr>
 	                        <td width='225px'>	                            
 	                            <p>网络拔插事件<input type="text" id="netchanged" /></p>
@@ -172,8 +180,10 @@
 	                          	<p><button class="event received" id="removeListen" >移除usb监听</button>
 	                          	<p><button class="event received" id="addListen" >添加usb监听</button>
 	                        </td>
+                            <td></td>
 	                    </tr>
 	                </table>
+                    </fieldset>
                 </p>
             </div>
         </div>

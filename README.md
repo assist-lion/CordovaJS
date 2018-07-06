@@ -11,4 +11,6 @@
 
 ## 项目截图 ##
 
-![Image text](https://github.com/lin-xin/manage-system/raw/master/screenshots/wms1.png)
+![Image text](https://github.com/fanyanbo/CordovaJS/blob/master/webdemo/img/test.png)
+![Image text](https://github.com/fanyanbo/CordovaJS/blob/master/webdemo/img/test2.png)
+![Image text](https://github.com/fanyanbo/CordovaJS/blob/master/webdemo/img/test3.png)

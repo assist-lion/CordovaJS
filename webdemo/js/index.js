@@ -116,16 +116,31 @@ var app = {
             }, function(error) { console.log(error); })
         }, false);
 
-        document.getElementById("startNewBrowser2").addEventListener("click", function() {
-            coocaaosapi.startNewBrowser2("http://beta.webapp.skysrt.com/games/test/test.html", function(message) {
+        document.getElementById("startNewBrowser").addEventListener("click", function() {
+            coocaaosapi.startNewBrowser("http://beta.webapp.skysrt.com/games/webappdemo/index.html", function(message) {
                 console.log("启动成功" + JSON.stringify(message));
             }, function(error) {
                 console.log("启动s失败 " + JSON.stringify(error));
             })
         }, false);
 
-        document.getElementById("startNewBrowser").addEventListener("click", function() {
-            coocaaosapi.startNewBrowser("http://beta.webapp.skysrt.com/games/test/test.html", function(message) {
+        document.getElementById("startNewBrowser2").addEventListener("click", function() {
+            coocaaosapi.startNewBrowser2("http://beta.webapp.skysrt.com/games/webappdemo/index.html", function(message) {
+                console.log("启动成功" + JSON.stringify(message));
+            }, function(error) {
+                console.log("启动s失败 " + JSON.stringify(error));
+            })
+        }, false);
+        document.getElementById("startNewBrowser3").addEventListener("click", function() {
+            coocaaosapi.startNewBrowser3("http://beta.webapp.skysrt.com/games/webappdemo/index.html", function(message) {
+                console.log("启动成功" + JSON.stringify(message));
+            }, function(error) {
+                console.log("启动s失败 " + JSON.stringify(error));
+            })
+        }, false);
+
+        document.getElementById("startNewBrowser4").addEventListener("click", function() {
+            coocaaosapi.startNewBrowser4("http://beta.webapp.skysrt.com/games/webappdemo/index.html", function(message) {
                 console.log("启动成功" + JSON.stringify(message));
             }, function(error) {
                 console.log("启动s失败 " + JSON.stringify(error));
@@ -418,6 +433,13 @@ var app = {
             var a = '{"pkgList":["com.tianci.user","com.coocaa.mall"]}'
             coocaaosapi.getAppInfo(a, function(message) {
                 document.getElementById('appinfo').value = JSON.stringify(message);
+            }, function(error) { console.log(error); })
+        }, false);
+
+        document.getElementById("getpushinfo").addEventListener("click", function() {
+            var a = '{"pkgList":["com.tianci.user","com.coocaa.mall"]}'
+            coocaaosapi.getPushInfo(a, function(message) {
+                document.getElementById('pushinfo').value = JSON.stringify(message);
             }, function(error) { console.log(error); })
         }, false);
 

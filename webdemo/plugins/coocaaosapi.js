@@ -997,9 +997,17 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
             [{ "url": url }]
         ], success, error);
     }
+    CoocaaOSApi.prototype.startNewBrowser2 = function(url, success, error) {
+        console.log("启动新版浏览器")
+        argscheck.checkArgs('sff', 'CoocaaOSApi.startNewBrowser', arguments);
+        startapp.start([
+            ["action", "coocaa.intent.action.browser.no_trans.no_route", "com.coocaa.app_browser"],
+            [{ "url": url }]
+        ], success, error);
+    }
     //启动新版浏览器+++activity【有路径，即启动多层activity】
     //如需要启动透明的，使用action：coocaa.intent.action.browser.withroute
-    CoocaaOSApi.prototype.startNewBrowser2 = function(url, success, error) {
+    CoocaaOSApi.prototype.startNewBrowser3 = function(url, success, error) {
         console.log("启动新版浏览器")
         var FLAG_ACTIVITY_NEW_TASK = 268435456;
         var FLAG_ACTIVITY_MULTIPLE_TASK = 134217728;
@@ -1007,6 +1015,17 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
         argscheck.checkArgs('sff', 'CoocaaOSApi.startNewBrowser2', arguments);
         startapp.start([
             ["action", "coocaa.intent.action.browser", "com.coocaa.app_browser", "", "", task + ""],
+            [{ "url": url }]
+        ], success, error);
+    }
+    CoocaaOSApi.prototype.startNewBrowser4 = function(url, success, error) {
+        console.log("启动新版浏览器")
+        var FLAG_ACTIVITY_NEW_TASK = 268435456;
+        var FLAG_ACTIVITY_MULTIPLE_TASK = 134217728;
+        var task = FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK;
+        argscheck.checkArgs('sff', 'CoocaaOSApi.startNewBrowser2', arguments);
+        startapp.start([
+            ["action", "coocaa.intent.action.browser.no_trans", "com.coocaa.app_browser", "", "", task + ""],
             [{ "url": url }]
         ], success, error);
     }
@@ -1052,6 +1071,13 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
         console.log("getAppInfo in coocaaosapi.js");
         argscheck.checkArgs('sff', 'CoocaaOSApi.getAppInfo', arguments);
         exec(success, error, 'CoocaaOSApi', 'getAppInfo', [{ 'pkgList': packageName }]);
+    }
+    /*获取push相关信息*/
+    //参数传递一个对象，key为"pkgList",value为应用包名的数组。即{pkgList:["com.tianci.user","com.tianci.movieplatform"]}
+    CoocaaOSApi.prototype.getPushInfo = function(packageName, success, error) {
+        console.log("getPushInfo in coocaaosapi.js");
+        argscheck.checkArgs('sff', 'CoocaaOSApi.getPushInfo', arguments);
+        exec(success, error, 'CoocaaOSApi', 'getPushInfo', [{ 'pkgList': packageName }]);
     }
 
     //获取基础信息

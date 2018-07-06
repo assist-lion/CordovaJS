@@ -132,8 +132,10 @@
                         <tr>
 	                        <td width='225px'>
 	                        	<p>不同的启动方式：使用时注意传参<br><button class="event received" id="startbyaction">action启动</button><button class="event received" id="startbypkgandclass">包名加类名启动</button><button class="event received" id="startbypkgandaction">包名加action</button><button class="event received" id="startbypkg">包名启动</button></p>
-	                        	<p>活动浏览器起多个页面的逻辑<button class="event received" id="startNewBrowser2" >启动有路径action</button>    
-	                        	<button class="event received" id="startNewBrowser" >启动无路径action</button>
+	                        	<p>活动浏览器起多个页面的逻辑<button class="event received" id="startNewBrowser" >启动no_route</button>    
+	                        	<button class="event received" id="startNewBrowser2" >启动no_trans;no_route</button>
+                                <button class="event received" id="startNewBrowser3" >启动有路径action</button>
+                                <button class="event received" id="startNewBrowser4" >启动有路径no_trans</button>
                         	</td>
                             <td>
 	                        	<p><button class="event received" id="setBusiness" >设置业务需求business【回调】</button>
@@ -143,6 +145,7 @@
                             <td>
 	                            <p><button class="event received" id="startpurcharse" >启动支付订单</button>
 	                            <p><input type="text" id="appinfo"/><button class="event received" id="getappinfo">获取app信息</button></p>
+                                <p><input type="text" id="pushinfo"/><button class="event received" id="getpushinfo">获取push信息</button></p>
                 				<p><input type="text" id="themeinfo"/><button class="event received" id="getthemeinfo">获取主题信息</button></p>
                 				
             				</td>

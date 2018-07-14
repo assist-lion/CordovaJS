@@ -667,25 +667,9 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
 
     /*******************************************cordova 2.0新增***********************************************/
     //启动集成到webSDK内部的支付页面----------即2.2.3（含）"versionCode">=2020003以上使用
-    CoocaaOSApi.prototype.purchaseOrder2 = function(appcode, Tradeid, ProductName, SpecialType, amount, ProductType, payAction, cmd, success, error) {
-        argscheck.checkArgs('ssssnsssff', 'CoocaaOSApi.purchaseOrder', arguments);
-        exec(success, error, 'CoocaaOSApi', 'purchaseOrder', [{
-            'appcode': appcode
-        }, {
-            'Tradeid': Tradeid
-        }, {
-            'ProductName': ProductName
-        }, {
-            'SpecialType': SpecialType
-        }, {
-            'amount': amount
-        }, {
-            'ProductType': ProductType
-        }, {
-            'payAction': payAction
-        }, {
-            'cmd': cmd
-        }]);
+    CoocaaOSApi.prototype.purchaseOrder2 = function(appcode, Tradeid, ProductName, SpecialType, amount, ProductType, payAction, cmd, token, tel, success, error) {
+        argscheck.checkArgs('ssssnsssssff', 'CoocaaOSApi.purchaseOrder', arguments);
+        exec(success, error, 'CoocaaOSApi', 'purchaseOrder', [{ 'appcode': appcode }, { 'Tradeid': Tradeid }, { 'ProductName': ProductName }, { 'SpecialType': SpecialType }, { 'amount': amount }, { 'ProductType': ProductType }, { 'payAction': payAction }, { 'cmd': cmd }, { 'token': token }, { 'tel': tel }]);
     }
 
     //启动影视支付（用于自动续费）

@@ -1108,8 +1108,8 @@ cordova.define("com.coocaaosapi", function(require, exports, module) {
     // 1、如果系统是6.x的，action是coocaa.intent.action.HOME
     // 2、如果系统是5.x的，需要判断一下persist.service.homepage.pkg这个prop，如果值是com.tianci.movieplatform，那么action是coocaa.intent.action.HOME.Translucent  否则 action就是coocaa.intent.movie.home
     // 3、跳转到指定tab上，intent附带参数，key是jumpToPage 值是tab的id，由运营提供
-    CoocaaOSApi.prototype.startHomeTap = function(actionName,tabid,success,error){
-        argscheck.checkArgs('ssff','CoocaaOSApi.startHomeTap',arguments);
+    CoocaaOSApi.prototype.startHomeTab = function(actionName,tabid,success,error){
+        argscheck.checkArgs('ssff','CoocaaOSApi.startHomeTab',arguments);
         startapp.start([["action", actionName],[{'jumpToPage':tabid}]], success,error);
     }
 
